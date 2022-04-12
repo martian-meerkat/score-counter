@@ -1,0 +1,92 @@
+.playertable {
+    border-collapse: collapse;
+    margin-bottom: 16px;
+}
+
+.playertable th {
+    border-bottom: 3px solid grey;
+    padding-right: 16px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.playertable td {
+    padding-right: 16px;
+}
+
+.playertable tr {
+    border-bottom: 1px solid grey;
+}
+
+.playertable button {
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+.playertable th > span {
+    vertical-align: middle;
+}
+
+.scorebtn {
+    border: 1px solid rgba(15, 10, 222, 0.4);
+    border-radius: 50%;
+    height: 30px;
+    font-size: 16px;
+    margin: 0 5px 0 5px;
+    width: 30px;
+}
+
+.scorebtn:focus {
+    border: 1px solid rgb(15, 10, 222);
+}
+
+.sortbtn {
+    background-size: 100%;
+    border: none;
+    float: right;
+    height: 20px;
+    margin-left: 8px;
+    width: 20px;
+}
+
+.sortbtn-off {
+    background-image: url('../icons/up-down-arrow.png');
+}
+
+.sortbtn-asc {
+    background-image: url('../icons/ascending-sorting.png');
+}
+
+.sortbtn-desc {
+    background-image: url('../icons/descending-sorting.png');
+}
+
+.deletebtn {
+    border: none;
+    background-image: url('../icons/delete.png');
+    width: 30px;
+    height: 30px;
+}
+
+.addplayer {
+    text-align: left;
+    width: 420px;
+}
+.addplayer > input {
+    height: 19px;
+    width: 310px;
+}
+
+.addplayer > button {
+    background-color: transparent;
+    border: 1px solid gray;
+    cursor: pointer;
+    height: 25px;
+    float: right;
+    outline: none;
+    width: 90px;
+}

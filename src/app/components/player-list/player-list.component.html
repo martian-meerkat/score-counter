@@ -1,0 +1,45 @@
+<h2>Player list</h2>
+
+<table class="playertable">
+    <thead>
+        <th>
+            <span>Name</span>
+            <button *ngIf="(sortBy$ | async)?.name !== 'name'" (click)="sortBy({name: 'name', order: 'asc'})" class="sortbtn sortbtn-off"></button>
+            <button *ngIf="(sortBy$ | async)?.name === 'name' && (sortBy$ | async)?.order === 'asc'" (click)="sortBy({name: 'name', order: 'desc'})" class="sortbtn sortbtn-desc"></button>
+            <button *ngIf="(sortBy$ | async)?.name === 'name' && (sortBy$ | async)?.order === 'desc'" (click)="sortBy({name: 'none', order: 'off'})" class="sortbtn sortbtn-asc"></button>
+        </th>
+        <th>
+            <span>Score</span>
+            <button *ngIf="(sortBy$ | async)?.name !== 'score'" (click)="sortBy({name: 'score', order: 'desc'})" class="sortbtn sortbtn-off"></button>
+            <button *ngIf="(sortBy$ | async)?.name === 'score' && (sortBy$ | async)?.order === 'desc'" (click)="sortBy({name: 'score', order: 'asc'})" class="sortbtn sortbtn-desc"></button>
+            <button *ngIf="(sortBy$ | async)?.name === 'score' && (sortBy$ | async)?.order === 'asc'" (click)="sortBy({name: 'none', order: 'off'})" class="sortbtn sortbtn-asc"></button>
+        </th>
+        <th>
+            <span>Created</span>
+            <button *ngIf="(sortBy$ | async)?.name !== 'createDate'" (click)="sortBy({name: 'createDate', order: 'asc'})" class="sortbtn sortbtn-off"></button>
+            <button *ngIf="(sortBy$ | async)?.name === 'createDate' && (sortBy$ | async)?.order === 'asc'" (click)="sortBy({name: 'createDate', order: 'desc'})" class="sortbtn sortbtn-asc"></button>
+            <button *ngIf="(sortBy$ | async)?.name === 'createDate' && (sortBy$ | async)?.order === 'desc'" (click)="sortBy({name: 'none', order: 'off'})" class="sortbtn sortbtn-desc"></button>
+        </th>
+        <th></th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let player of (players$ | async)">
+            <td> {{ player.name }} </td>
+            <td> {{ player.score }} </td>
+            <td> {{ player.createDate | date: 'dd.MM.yyyy HH:mm:ss' }}</td>
+            <td>
+                <button class="scorebtn" (click)="incrementPlayerScore(player)">+1</button>
+                <button class="scorebtn" (click)="decrementPlayerScore(player)">-1</button>
+            </td>
+            <td>
+                <button class="deletebtn" (click)="removePlayer(player.id)"></button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="addplayer">
+    <input type="text" id="newplayername" name="newplayername" #newplayername>
+    <button (click)="addPlayer(newplayername.value)">Add player</button>
+</div>
